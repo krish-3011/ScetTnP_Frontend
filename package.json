@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://scettnp-frontend.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
@@ -14,6 +15,7 @@
     "bootstrap": "^5.3.3",
     "gauge-js": "^1.0.5",
     "gaugeJS": "^1.3.8",
+    "gh-pages": "^6.1.1",
     "react": "^18.3.1",
     "react-apexcharts": "^1.4.1",
     "react-bootstrap": "^2.10.4",
@@ -35,6 +37,8 @@
     "vite": "^5.3.4"
   },
   "scripts": {
+   "predeploy": "npm run build",
+   "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
