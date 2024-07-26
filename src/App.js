@@ -3,9 +3,6 @@ import './STATSPG/style.css';
 import './STATSPG/header.css';
 import './STATSPG/button.css';
 import './STATSPG/graph.css';
-import Navbar from './STATSPG/Navbar';
-import Header from './STATSPG/Header';
-import Graphs from './STATSPG/Graphs';
 import Offers from './OFFERSPG/Offers';
 import FirstPage from './STATSPG/Firstpage';
 import Vision from './V&MPG/Visions';
@@ -18,9 +15,8 @@ import AddOffers from './ADDOFFERSPG/AddOffer';
 
 
 import {
-  BrowserRouter as Router,
+  
   Route,
-  Link,
   BrowserRouter,
   Routes
 } from "react-router-dom";

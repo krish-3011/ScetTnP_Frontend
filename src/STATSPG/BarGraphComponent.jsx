@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const ApexChart = ({ id, data }) => {
-  const [options, setOptions] = useState({
+  const [options] = useState({
     chart: {
       id,
       type: 'bar',

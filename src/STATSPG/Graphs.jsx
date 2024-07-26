@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+
 import "./style.css";
 import "./header.css";
 import "./button.css";
@@ -6,19 +6,11 @@ import "./graph.css";
 import GaugeComponent from "./GaugeComponent";
 import AcademicYearDropdown from "./DropDownComponent";
 import DepartmentDropdown from "./DropDownComponentDept";
-import ReactDOM from "react-dom";
+
 import ApexChart from "./BarGraphComponent";
 import BarChartComponent from "./VBarGraph";
 
-let data;
-const GetData = async () => {
-  try {
-    data = await fetch("192.168.156.253:8080/home");
-    console.log(data);
-  } catch (err) {
-    console.log(err);
-  }
-};
+
 
 const Graphs = () => (
   <div className="Stats">
