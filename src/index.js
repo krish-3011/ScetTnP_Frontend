@@ -2,10 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { makeServer } from './mirageServer';
 
-// Start MirageJS server
-makeServer();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,3 +10,5 @@ root.render(
     <App />
   </React.StrictMode>
 );
+
+
