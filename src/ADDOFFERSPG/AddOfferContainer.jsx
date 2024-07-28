@@ -26,7 +26,7 @@ const AddOffersContainer = () => {
     e.preventDefault();
 
     //sending data
-    let response = await fetch("http://localhost:8080/offers" , {
+    let response = await fetch("https://scettnp-backend.onrender.com/offers" , {
       method : 'POST',
       headers : {
         'Content-Type' : 'application/json'
