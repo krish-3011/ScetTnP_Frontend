@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 
-const DepartmentDropdown = () => {
+
+const DepartmentDropdown = ({ onDeptChange }) => {
   const [selectedDepartment, setSelectedDepartment] = useState('');
 
   const handleChange = (event) => {
-    setSelectedDepartment(event.target.value);
+    let dept = event.target.value
+    setSelectedDepartment(dept);
+    onDeptChange(dept);
   };
 
   const departments = [
-    'Computer Science',
-    'Electrical Engineering',
-    'Mechanical Engineering',
-    'Civil Engineering',
-    'Chemical Engineering',
+    'CO',
+    'EL',
+    'MH',
+    'CI',
+    'CH',
     'Biotechnology',
     'Mathematics',
     'Physics',

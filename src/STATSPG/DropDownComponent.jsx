@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 
-const AcademicYearDropdown = () => {
+
+const AcademicYearDropdown = ( {onYearChange}) => {
   const [selectedYear, setSelectedYear] = useState('');
 
   const handleChange = (event) => {
-    setSelectedYear(event.target.value);
+   let year=event.target.value;
+   setSelectedYear(year);
+    onYearChange(year);
   };
 
   const academicYears = [];

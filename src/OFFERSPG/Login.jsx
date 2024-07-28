@@ -22,6 +22,8 @@ const LoginComponent = ({ onSubmit }) => {
               id="enrollment"
               className="login-input"
               value={enrollment}
+               pattern=".{8,}"
+               title="Enrollment must contain 8  characters"
               onChange={(e) => setEnrollment(e.target.value)}
             />
           </div>
@@ -47,4 +49,4 @@ const LoginComponent = ({ onSubmit }) => {
   );
 };
 
-export default LoginComponent;
+export default LoginComponent;

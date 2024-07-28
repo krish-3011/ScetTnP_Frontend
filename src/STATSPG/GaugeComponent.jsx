@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Gauge } from 'gaugeJS';
 import './graph.css';
 
-const GaugeComponent = ({ id, value }) => {
+const GaugeComponent = ({ id, value,max , text }) => {
   useEffect(() => {
     const opts = {
       angle: -0.06,
@@ -21,14 +21,14 @@ const GaugeComponent = ({ id, value }) => {
       generateGradient: true,
       highDpiSupport: true,
       staticZones: [
-        { strokeStyle: "#6976CB", min: 0, max: 250 },
-        { strokeStyle: "#F2F3F6", min: 250, max: 320 }
+        { strokeStyle: "#6976CB", min: 0, max: value },
+        { strokeStyle: "#F2F3F6", min: value, max: max }
       ]
     };
 
     const target = document.getElementById(id);
     const gauge = new Gauge(target).setOptions(opts);
-    gauge.maxValue = 320;
+    gauge.maxValue = max;
     gauge.setMinValue(0);
     gauge.animationSpeed = 60;
     gauge.set(value);
@@ -39,9 +39,9 @@ const GaugeComponent = ({ id, value }) => {
     <div id={`container-${id}`}>
       <canvas id={id}></canvas>
       <div className="gauge-label label-left">0</div>
-      <div className="gauge-label label-right">320</div>
-      <div className="gauge-label label-middle">total</div>
-      <p  className=" students-interested">students interested</p>
+      <div className="gauge-label label-right">{max}</div>
+      <div className="gauge-label label-middle">{value}</div>
+      <p  className=" students-interested">{text}</p>
     </div>
     </div>
   );

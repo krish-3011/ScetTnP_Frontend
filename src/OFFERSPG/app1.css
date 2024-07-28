@@ -16,27 +16,32 @@
 
 /* The box that contains the login form */
 .login-box {
-  background: #fff;
+  background-image: url("https://c4.wallpaperflare.com/wallpaper/607/478/331/ruby-development-gradient-geometry-wallpaper-preview.jpg" );
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  
+  padding: 50px;
   width: 300px;
   max-width: 100%;
   position: relative; /* Ensure the box stays within the container */
+  margin-left: -400px;
 }
 
 /* Title styling */
 .login-title {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  font-size: 30px;
 }
 
 /* Label styling */
 .login-label {
   display: block;
   margin-bottom: 8px;
-  color: #555;
+  font-size: 20px;
+  color: #000000;
+  margin-left: -8px;
 }
 
 /* Input field styling */
@@ -47,13 +52,16 @@
   border-radius: 5px;
   margin-bottom: 20px;
   font-size: 16px;
+  margin-left: -11px;
 }
 
 /* Button styling */
 .login-button {
   width: 100%;
+  margin-top: 20px;
   padding: 10px;
-  background-color: #007bff;
+  background-color: #9d4bd433;
+  
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -64,5 +72,5 @@
 
 /* Button hover effect */
 .login-button:hover {
-  background-color: #0056b3;
+  background-color: #9a40cf;
 }

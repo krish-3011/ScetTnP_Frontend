@@ -1,4 +1,6 @@
-
+:root{
+  --pie-val : 0;
+}
   .graph-1 {
    display: flex;
     background: #dddff6;
@@ -123,10 +125,10 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-image: conic-gradient(rgba(220,220,224,0.47) 30%, #6976eb 0 100%);
+    background-image: conic-gradient(#6976eb var(--pie-val),rgba(220,220,224,0.47)  0 100%);
     animation: rotate 5s linear infinite;
   }
-  ._65 {
+  .pie_text {
     background-color: transparent;
     margin-left: 80px;
     color: #3b3d53;
