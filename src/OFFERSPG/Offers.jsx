@@ -8,24 +8,27 @@ import LoginPage from "./Login";
 const Offers = () => {
   const [showLoginPage, setShowLoginPage] = useState(true);
 
-  const handleLoginSubmit = () => {
-    // Hide the LoginPage when submit button is clicked
-    setShowLoginPage(false);
+  const handleLoginSubmit = (success) => {
+    if (success) {
+      setShowLoginPage(false); // Hide the LoginPage if login is successful
+    } else {
+      // Keep LoginPage visible if login fails
+      setShowLoginPage(true);
+    }
   };
 
   return (
     <>
-    {showLoginPage && <LoginPage onSubmit={handleLoginSubmit} />}
-    <div className="offer1container">
-      <Navbar />
-      <Header
-        className="offers-header"
-        title="OFFERS"
-        text="Browse through our latest job offers and start your journey towards a fulfilling career. From tech giants to management roles, explore opportunities that await you."
-      />
-     
-      <Offerscontainer />
-    </div>
+      {showLoginPage && <LoginPage onSubmit={handleLoginSubmit} />}
+      <div className="offer1container">
+        <Navbar />
+        <Header
+          className="offers-header"
+          title="OFFERS"
+          text="Browse through our latest job offers and start your journey towards a fulfilling career. From tech giants to management roles, explore opportunities that await you."
+        />
+        <Offerscontainer />
+      </div>
     </>
   );
 };
