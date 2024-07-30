@@ -1,14 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './app1.css' ;  // Import the CSS file
+
+
+
 
 const LoginComponent = ({ onSubmit }) => {
   const [enrollment, setEnrollment] = useState('');
   const [date, setDate] = useState('');
+  const [data, setData] = useState('');
+  const [error, setError] = useState('null')
+  const [loading, setLoading] = useState(true)
+
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (onSubmit) onSubmit({ enrollment, date });
+    if (onSubmit) onSubmit({ enrollment, date }); 
+  
+  
+    const authData = async () => {
+       try {
+         let response = await fetch("https://scettnp-backend.onrender.com/auth" , 
+                                     {
+                                     method : 'POST',
+                                     headers : {
+                                       'Content-Type' : 'application/json'
+                                     },
+                                     body :JSON.stringify({enrollmentNo : enrollment ,birthdate : date })
+                                     })
+         if (!response.ok) {
+           throw new Error(`HTTP error! status: ${response.status}`);
+         }
+         const jsonData = await response.json();
+         setData(jsonData); // Set the data state with the fetched data
+         setLoading(false); // Set loading to false once data is fetched
+       } catch (error) {
+         setError(error.message); // Set the error state if an error occurs
+         setLoading(false); // Set loading to false in case of an error
+       }
+    };
+   authData();
   };
+
+
+
 
   return (
     <div className="login-container">
