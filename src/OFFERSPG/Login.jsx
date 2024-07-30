@@ -1,42 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './app1.css'; // Import the CSS file
 
 const LoginComponent = ({ onSubmit }) => {
   const [enrollment, setEnrollment] = useState('');
   const [date, setDate] = useState('');
-  const [data, setData] = useState(null); // Initialize as null
-  const [error, setError] = useState(null); // Initialize as null
-  const [loading, setLoading] = useState(false); // Initialize as false
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (onSubmit) onSubmit({ enrollment, date });
+    setLoading(true);
+    setError(null);
 
-    setLoading(true); // Set loading to true when starting the fetch
-    setError(null); // Clear any previous errors
+    try {
+      let response = await fetch("https://scettnp-backend.onrender.com/auth", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({ enrollmentNo: enrollment, birthDate: date })
+      });
 
-    const authData = async () => {
-      try {
-        let response = await fetch("https://scettnp-backend.onrender.com/auth", {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          credentials: 'include', // Include credentials
-          body: JSON.stringify({ enrollmentNo: enrollment, birthDate: date }) // Match field names
-        });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+      if (response.ok) {
         const jsonData = await response.json();
-        setData(jsonData); // Set the data state with the fetched data
-        setLoading(false); // Set loading to false once data is fetched
-      } catch (error) {
-        setError(error.message); // Set the error state if an error occurs
-        setLoading(false); // Set loading to false in case of an error
+        setLoading(false);
+        onSubmit(true); // Notify parent component of successful login
+      } else {
+        const result = await response.json();
+        setError(result.message);
+        setLoading(false);
+        onSubmit(false); // Notify parent component of failed login
       }
-    };
-    authData();
+    } catch (error) {
+      setError('An error occurred. Please try again.');
+      setLoading(false);
+      onSubmit(false); // Notify parent component of failed login
+    }
   };
 
   return (
@@ -71,13 +71,12 @@ const LoginComponent = ({ onSubmit }) => {
           <button
             type="submit"
             className="login-button"
-            disabled={loading} // Disable button while loading
+            disabled={loading}
           >
-            {loading ? 'Loading...' : 'Submit'} {/* Show loading text */}
+            {loading ? 'Loading...' : 'Submit'}
           </button>
         </form>
-        {error && <div className="error-message">{error}</div>} {/* Display error message */}
-        {data && <div className="success-message">Login Successful</div>} {/* Display success message */}
+        {error && <div className="error-message">{error}</div>}
       </div>
     </div>
   );
