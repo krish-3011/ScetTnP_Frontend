@@ -9,11 +9,15 @@ const Profile = () => {
   const [profileData, setProfileData] = useState(null);
 
   const handleLoginSubmit = async (success) => {
+    console.log('Login success:', success); // Debug login success
     if (success) {
       setShowLoginPage(false); // Hide the LoginPage if login is successful
       try {
-        const response = await fetch('https://scettnp-backend.onrender.com/auth');
+        const response = await fetch('https://scettnp-backend.onrender.com/auth', {
+          credentials: 'include'
+        });
         const data = await response.json();
+        console.log('Fetched profile data:', data); // Debug fetched profile data
         setProfileData(data);
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -34,7 +38,7 @@ const Profile = () => {
           title="PROFILE" // Dynamic title
           text="Browse through our latest job offers and start your journey towards a fulfilling career. From tech giants to management roles, explore opportunities that await you."
         />
-        {profileData && (
+        {profileData ? (
           <ProfileForm 
             Enrollment={profileData.enrollment_no} 
             Name={profileData.name} 
@@ -61,6 +65,8 @@ const Profile = () => {
             BtechSeventh={profileData.result.degree.semwise_result[6] || 'na'} 
             BtechEigth={profileData.result.degree.semwise_result[7] || 'na'}
           />
+        ) : (
+          !showLoginPage && <div>Loading profile data...</div>
         )}
       </div>
     </>
