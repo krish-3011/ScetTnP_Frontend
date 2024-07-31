@@ -15,6 +15,7 @@ const Profile = () => {
       if (userCookie) {
         const data = JSON.parse(userCookie);
         setProfileData(data);
+        setShowLoginPage(false);
       }
     } else {
       setShowLoginPage(true);

@@ -87,15 +87,19 @@
 button.addoffertext {
     width: 200px;
     margin: 20px auto 0; /* Center the button */
-    background-color: #4CAF50;
+    background-color: #833fada0;
+  
     color: white;
     border: none;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
     text-align: center;
+    font-size: 15px;
 }
 
 button.addoffertext:hover {
-    background-color: #45a049;
+    background-image: linear-gradient(#B384C9, #8140d6 50%);
+    padding: 11px;
+    font-size: 16px;
 }
