@@ -3,7 +3,7 @@ import Navbar from "../STATSPG/Navbar";
 import Header from "../STATSPG/Header";
 import ProfileForm from "./ProfileForm";
 import LoginPage from "../OFFERSPG/Login";
-import Cookies from 'js-cookie';
+import Cookies from 'js-cookie'; // Import js-cookie
 
 const Profile = () => {
   const [showLoginPage, setShowLoginPage] = useState(false);
@@ -11,7 +11,7 @@ const Profile = () => {
 
   const handleLoginSubmit = async (success) => {
     if (success) {
-      const userCookie = Cookies.get('user');
+      const userCookie = Cookies.get('user'); // Read session cookie
       if (userCookie) {
         const data = JSON.parse(userCookie);
         setProfileData(data);
@@ -23,7 +23,7 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    const userCookie = Cookies.get('user');
+    const userCookie = Cookies.get('user'); // Read session cookie
     if (userCookie) {
       const data = JSON.parse(userCookie);
       setProfileData(data);
