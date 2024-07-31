@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 import './app1.css'; // Import the CSS file
 
 const LoginComponent = ({ onSubmit }) => {
@@ -25,6 +26,7 @@ const LoginComponent = ({ onSubmit }) => {
       if (response.ok) {
         const jsonData = await response.json();
         setLoading(false);
+        Cookies.set('user', JSON.stringify(jsonData), { expires: 1 }); // Set cookie for 1 day
         onSubmit(true); // Notify parent component of successful login
       } else {
         const result = await response.json();
