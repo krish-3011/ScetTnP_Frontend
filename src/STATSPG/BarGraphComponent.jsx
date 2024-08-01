@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 const ApexChart = ({ id, data }) => {
+  let values = Object.values(data);
+  let keys = Object.keys(data);
   const [options] = useState({
     chart: {
       id,
@@ -23,30 +25,22 @@ const ApexChart = ({ id, data }) => {
       enabled: false
     },
     xaxis: {
-      categories: Object.keys(data),
+      categories: keys,
     }
   });
 
-  // Ensure data is correctly formatted
-  const seriesData = Object.values(data).map(item => item.data); // Assuming data contains 'data' array
-  
   const [series, setSeries] = useState([{
-    name: 'Series 1', // Add a name for the series
-    data: seriesData
+    values
   }]);
 
   useEffect(() => {
-    const formattedData = {
-      name: 'Series 1',
-      data: Object.values(data).map(item => item.value) // Adjust based on actual structure
-    };
-    setSeries([formattedData]);
+    setSeries([{ data }]);
   }, [data]);
 
   return (
     <div>
       <div id={`chart-${id}`}>
-        <ReactApexChart options={options} series={series} type="bar" height={300} width={450} />
+        <ReactApexChart options={options} series={series} type="bar" height={300} width={450} /> {/* Adjust height and width here */}
       </div>
       <div id="html-dist"></div>
     </div>
