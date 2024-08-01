@@ -88,7 +88,7 @@ const Graphs = () => {
         <div className="BAR-GRAPH">
           <ApexChart
             id="1"
-            data={{data:data.highestPackge}}
+            data={data.highestPackge}
           />
         </div>
       </div>
@@ -97,7 +97,7 @@ const Graphs = () => {
         <div className="BAR-GRAPH2">
           <ApexChart
             id="2"
-            data={{data:data.averagePackge}}
+            data={data.averagePackge}
           />
         </div>
       </div>

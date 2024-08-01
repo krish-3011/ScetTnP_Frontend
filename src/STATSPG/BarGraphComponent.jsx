@@ -27,6 +27,9 @@ const ApexChart = ({ id, data }) => {
     }
   });
   let values = Object.values(data);
+  console.log(values);
+  let keys = Object.keys(data);
+  console.log(keys);
   const [series, setSeries] = useState([{
     values
   }]);
