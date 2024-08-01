@@ -23,14 +23,12 @@ const ApexChart = ({ id, data }) => {
       enabled: false
     },
     xaxis: {
-      categories: ['2018', '2019', '2020', '2021', '2022', '2023', '2024',
-        '2025', '2026', '2027'
-      ],
+      categories: Object.keys(data),
     }
   });
-
+  let values = Object.values(data);
   const [series, setSeries] = useState([{
-    data
+    values
   }]);
 
   useEffect(() => {

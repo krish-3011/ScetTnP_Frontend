@@ -14,7 +14,7 @@ const AcademicYearDropdown = ( {onYearChange}) => {
   const currentYear = new Date().getFullYear();
   
   // Generate academic years from 2000-2001 to the current year
-  for (let year = 2000; year <= currentYear; year++) {
+  for (let year = 2018; year <= currentYear+1; year++) {
     academicYears.push(`${year}-${year + 1}`);
   }
 
