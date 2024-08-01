@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { BarChart } from '@mui/x-charts/BarChart';
 
-const  BarChartComponent = () => {
+const  BarChartComponent = ({label , coreData , itData , managmentData}) => {
   return (
     <BarChart
-      series={[
-        { data: [35, 44, 24, 34] },
-        { data: [51, 6, 49, 30] },
-        { data: [15, 25, 30, 50] },
-      ]}
+    series={[
+      { data: coreData, name: 'Core' },
+      { data: itData, name: 'IT' },
+      { data: managmentData, name: 'Management' },
+    ]}
       height={350}
-      xAxis={[{ data: ['2020', '2021', '2022', '2023'], scaleType: 'band' }]}
+      xAxis={[{ data:label, scaleType: 'band' }]}
       margin={{ top: 5, bottom: 20, left: 1, right: 1 }}
     />
   );

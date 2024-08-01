@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts';
 
-const ApexChart = ({ id, data }) => {
-  let values = Object.values(data);
-  let keys = Object.keys(data);
+const ApexChart = ({ id, data , label }) => {
   const [options] = useState({
     chart: {
       id,
@@ -25,12 +23,12 @@ const ApexChart = ({ id, data }) => {
       enabled: false
     },
     xaxis: {
-      categories: keys,
+      categories: label,
     }
   });
 
   const [series, setSeries] = useState([{
-    values
+    data
   }]);
 
   useEffect(() => {

@@ -43,7 +43,7 @@ const Graphs = () => {
         } else {
           jsonData.placementPercentage = 0;
         }
-        console.dir(jsonData)
+        // jsonData.highestPackge[2023] = 80000;
         setData(jsonData); // Set the data state with the fetched data
         setLoading(false); // Set loading to false once data is fetched
       } catch (error) {
@@ -62,6 +62,7 @@ const Graphs = () => {
   if (error) {
     return <div>Error: {error}</div>; // Show error message if there is an error
   }
+
 
   return (
     <div className="Stats">
@@ -88,7 +89,10 @@ const Graphs = () => {
         <div className="BAR-GRAPH">
           <ApexChart
             id="1"
-            data={data.highestPackge}
+            // data={data.highestPackge}
+            data={Object.values(data.highestPackge)}
+            // data={[10000,20000,80000,100000,6000]}
+            label={Object.keys(data.highestPackge)}
           />
         </div>
       </div>
@@ -97,13 +101,27 @@ const Graphs = () => {
         <div className="BAR-GRAPH2">
           <ApexChart
             id="2"
-            data={data.averagePackge}
+            // data={data.averagePackge}
+            data={Object.values(data.averagePackge)}
+            // data={[10000,2000,8000,100000,6000]}
+            label={Object.keys(data.averagePackge)}
+
           />
         </div>
       </div>
       <div className="Graph4">
         <div className="BarContainer">
-          <BarChartComponent />
+          <BarChartComponent 
+          coreData={Object.values(data.sector.core)}
+          itData={Object.values(data.sector.IT)}
+          managmentData={Object.values(data.sector.managment)}
+          // coreData={[0,1,5,2,8]}
+          // itData={[2,8,3,0,0]}
+          // managmentData={[1,1,1,1,1]}
+          label={Object.keys(data.sector.core)}
+          />
+
+
         </div>
       </div>
     </div>
