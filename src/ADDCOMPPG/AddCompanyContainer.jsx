@@ -29,7 +29,7 @@ const AddCompanyContainer = () =>
   
   const handleSubmit = async (e) => {
       e.preventDefault();
-      let response = await fetch("https://scettnp-backend.onrender.com/" , {
+      let response = await fetch("https://scettnp-backend.onrender.com/company" , {
           method : 'POST',
           headers : {
             'Content-Type' : 'application/json'
