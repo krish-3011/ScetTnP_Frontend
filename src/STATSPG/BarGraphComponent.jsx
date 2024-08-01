@@ -26,22 +26,27 @@ const ApexChart = ({ id, data }) => {
       categories: Object.keys(data),
     }
   });
-  let values = Object.values(data);
-  console.log(values);
-  let keys = Object.keys(data);
-  console.log(keys);
+
+  // Ensure data is correctly formatted
+  const seriesData = Object.values(data).map(item => item.data); // Assuming data contains 'data' array
+  
   const [series, setSeries] = useState([{
-    values
+    name: 'Series 1', // Add a name for the series
+    data: seriesData
   }]);
 
   useEffect(() => {
-    setSeries([{ data }]);
+    const formattedData = {
+      name: 'Series 1',
+      data: Object.values(data).map(item => item.value) // Adjust based on actual structure
+    };
+    setSeries([formattedData]);
   }, [data]);
 
   return (
     <div>
       <div id={`chart-${id}`}>
-        <ReactApexChart options={options} series={series} type="bar" height={300} width={450} /> {/* Adjust height and width here */}
+        <ReactApexChart options={options} series={series} type="bar" height={300} width={450} />
       </div>
       <div id="html-dist"></div>
     </div>
