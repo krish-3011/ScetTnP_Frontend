@@ -19,7 +19,7 @@ const Offerscontainer = () =>
                 }
                 let jsonData = await response.json();
                 jsonData = jsonData.offers;
-                // Calculate placement percentage and add as a new attribute
+
                 setData(jsonData); // Set the data state with the fetched data
                 setLoading(false); // Set loading to false once data is fetched
               } catch (error) {
@@ -38,7 +38,7 @@ const Offerscontainer = () =>
         <div className="appllicationframe">
         
         <div className="cards-container">
-            {data.map((job) => (
+            {data.slice().reverse().map((job) => (
         <ApplyCard 
           key={job._id} 
           company={job.company.name} 
