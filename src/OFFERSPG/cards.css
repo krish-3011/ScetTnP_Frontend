@@ -1,23 +1,67 @@
+.cardsmaincontainer
+{
+  display: flex;
+  width: 1124px;
+  height: 800px;
+  background-color: transparent;
+  margin-top: 30px;
+    margin-left: 288px;
+  justify-content: space-between;
+}
 .apllicationcontainerframe
 {
-    width: 625px;
-     height: 780px;
+    width: 540px;
+     height: 800px;
      background: #D7DAF8;
-    margin-top: 30px;
-    margin-left: 288px;
     border-radius: 30px;
     overflow: hidden;
     box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    justify-content: space-between;
+}
+.secondapllicationcontainerframe
+{
+    width: 540px;
+     height: 800px;
+     background: transparent;
+    border-radius: 30px;
+
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 16px;
+}
+.secondapplicationcontainer
+{
+  height: 390px;
+  background: #D7DAF8;
+ border-radius: 30px;
+ border: #D7DAF8;
+ border: 5.5px solid #D7DAF8; 
+ overflow: hidden;
+ box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+.thirdapplicationcontainer
+{
+  height: 390px;
+ border-radius: 30px;
+ background-color: #D7DAF8;
+ overflow: hidden;
+ border: #D7DAF8;
+ border: 5.5px solid #D7DAF8; 
+ padding-top: 2px;
+ box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .appllicationframe {
     border-radius: 30px;
     
 
-    width: 617px;
-    height: 746px;
+    width: auto;
+    height: 90%;
 
     overflow-y: scroll;
   }
+
   .applyframe {
     display: flex;
     align-items: center;

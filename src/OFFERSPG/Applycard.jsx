@@ -5,7 +5,7 @@ const ApplyCard = ({ company, title, type, location, salary, date, logo}) => {
   return (
     <div className="applyframe">
       <div className="companylogo">
-        <img src={logo.link} alt="company logo" />
+        <img src={logo} alt="company logo" />
       </div>
       <div className="apply-detail">
         <h2>{company}</h2>
