@@ -47,6 +47,7 @@ const Offerscontainer = () =>
           location={job.location} 
           salary={`${job.salary.min} - ${job.salary.max}`} 
           date={job.last_date}
+          logo={job.logo}
         />
       ))}
     </div>

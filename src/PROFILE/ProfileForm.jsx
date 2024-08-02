@@ -44,7 +44,7 @@ const ProfileForm = ({ Enrollment, Name, Birthdate, Email, Contact, Gender, Cast
           </div>
           <div className='profiletextbox'>
             <label className='profileinputtext'>Address</label>
-            <input value={Address} name="Address" className="profiletext" readOnly />
+            <textarea value={Address} name="Address" className="profiletext" readOnly />
           </div>
         </form>
       </div>

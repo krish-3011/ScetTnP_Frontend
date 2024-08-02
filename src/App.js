@@ -13,6 +13,7 @@ import Notification from './NOTIFICATIONPG/Notification';
 import Profile from './PROFILE/Profile';
 import AddOffers from './ADDOFFERSPG/AddOffer';
 import AddCompany from './ADDCOMPPG/AddCompany';
+import Reports from './REPORTSPG/Reports';
 
 
 import {
@@ -36,6 +37,7 @@ const App = () => (
   <Route exact path ='/profile' element={<Profile/>} />
   <Route exact path ='/add_offer' element={<AddOffers/>} />
   <Route exact path ='/add_company' element={<AddCompany/>} />
+  <Route exact path ='/reports' element={<Reports/>} />
 
   
 </Routes>

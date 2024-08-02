@@ -1,11 +1,11 @@
 import React from "react";
 import './cards.css';
 
-const ApplyCard = ({ company, title, type, location, salary, date }) => {
+const ApplyCard = ({ company, title, type, location, salary, date, logo}) => {
   return (
     <div className="applyframe">
       <div className="companylogo">
-        <img src="./amazon.png" alt="company logo" />
+        <img src={logo.link} alt="company logo" />
       </div>
       <div className="apply-detail">
         <h2>{company}</h2>
