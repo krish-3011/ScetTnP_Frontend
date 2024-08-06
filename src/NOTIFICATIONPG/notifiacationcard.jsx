@@ -1,12 +1,18 @@
 import React from "react";
 import './noticard.css';
 
-const noticard =({message}) =>
-{
-    return (
-        <div className="notirect">{message}</div>
-    );
-
+const NotiCard = ({ notification }) => {
+  return (
+    <div>
+      <div className="notirect">{notification.message}
+      <div >
+        {notification.attachments && notification.attachments.map((attachment) => (
+          <img key={attachment.path} src={attachment.path} alt="attached doc" />
+        ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
-export default noticard;
+export default NotiCard;

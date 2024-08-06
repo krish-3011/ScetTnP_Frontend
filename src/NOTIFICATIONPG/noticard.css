@@ -1,6 +1,15 @@
 .notirect{
-    width: 100%;
+   
   background: #D7DAF8;
-  height: fit-content;
+  height: max-content;
+  margin-top: 1%;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 1%;
+  overflow: hidden;
+  font-size: 20px;
+
+
   
 }

@@ -1,43 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import './notification.css';
-import noticard from './notifiacationcard';
+import NotiCard from './notifiacationcard'; // Import the NotiCard component correctly
+
 
 const NotificationContainer = () => {
-    // Define the state
     const [textareas, setTextareas] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(null);
     const [error, setError] = useState(null);
     const [message, setMessage] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [notifications, setNotifications] = useState([]);
 
-    // Define the click handler to add a new textarea
     const handleButtonClick = () => {
-        setTextareas([...textareas, { value: '', done: false }]);
+        setTextareas([...textareas, { value: '', done: false, attachment: null }]);
         setCurrentIndex(textareas.length);
     };
 
-    // Define the change handler to update textarea content
     const handleTextareaChange = (index, event) => {
         const newTextareas = [...textareas];
         newTextareas[index].value = event.target.value;
         setTextareas(newTextareas);
     };
 
-    // Define the done handler to mark a textarea as done
+    const handleFileChange = (index, event) => {
+        const newTextareas = [...textareas];
+        newTextareas[index].attachment = event.target.files[0];
+        setTextareas(newTextareas);
+    };
+
+    const fetchData = async () => {
+        try {
+            let response = await fetch("https://scettnp-backend.onrender.com/notification");
+            if (!response.ok) {
+                throw new Error(`Error ${response.status}`);
+            }
+            let jsonData = await response.json();
+            setNotifications(jsonData.notification);
+            setLoading(false);
+        } catch (error) {
+            console.log(`${error}`);
+            setError(error.message);
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
     const handleDoneClick = async (index) => {
         const newTextareas = [...textareas];
         newTextareas[index].done = true;
-        setTextareas(newTextareas);
+        setTextareas([]);
         setCurrentIndex(null);
 
-        const message = newTextareas[index].value;
+        const { value: message, attachment } = newTextareas[index];
+
+        const formData = new FormData();
+        formData.append('message', message);
+        if (attachment) {
+            formData.append('attachment', attachment);
+        }
 
         try {
             let response = await fetch("https://scettnp-backend.onrender.com/notification", {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ message }) // Send the message in a JSON object
+                body: formData // Send the FormData object
             });
 
             if (!response.ok) {
@@ -45,17 +73,13 @@ const NotificationContainer = () => {
                 setError(errorData.message);
             } else {
                 const result = await response.json();
-                setMessage(null);
-                
+                setMessage("Notification sent successfully");
+                fetchData(); // Fetch data again after successfully sending notification
             }
         } catch (err) {
             setError("Failed to send the message. Please try again.");
         }
     };
-
-    useEffect(() =>{
-        
-    })
 
     return (
         <div className="pmainnotificationcontainer">
@@ -73,19 +97,35 @@ const NotificationContainer = () => {
                                     onChange={(e) => handleTextareaChange(index, e)}
                                     disabled={textarea.done}
                                 ></textarea>
-                                {!textarea.done && (
-                                    <div className='donebutton-container'>
-                                        <button onClick={() => handleDoneClick(index)} className='donebutton'>Done</button>
-                                    </div>
-                                )}
+                                <div>
+                                    <label className='addattachment'>Add attachment</label>
+                                    <input
+                                        type="file"
+                                        name="attachment"
+                                        onChange={(e) => handleFileChange(index, e)}
+                                        disabled={textarea.done}
+                                    />
+                                    {!textarea.done && (
+                                        <div className='donebutton-container'>
+                                            <button onClick={() => handleDoneClick(index)} className='donebutton'>Done</button>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                            
                         ))}
                     </div>
                 )}
-                {error && <div className='error'>{error}</div>}
-                {message && <div className='success'>{message}</div>}
             </div>
+            <div className='notificationcontainer'>
+                {[...notifications].reverse().map((notification) => (
+                    <NotiCard
+                        key={notification._id}
+                        notification={notification}
+                    />
+                ))}
+            </div>
+            {error && <div className='error'>{error}</div>}
+            {message && <div className='success'>{message}</div>}
         </div>
     );
 };
