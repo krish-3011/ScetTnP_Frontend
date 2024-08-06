@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './notification.css';
 import NotiCard from './notifiacationcard'; // Import the NotiCard component correctly
 
-
 const NotificationContainer = () => {
     const [textareas, setTextareas] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(null);
@@ -12,7 +11,7 @@ const NotificationContainer = () => {
     const [notifications, setNotifications] = useState([]);
 
     const handleButtonClick = () => {
-        setTextareas([...textareas, { value: '', done: false, attachment: null }]);
+        setTextareas([...textareas, { value: '', done: false, attachments: [] }]);
         setCurrentIndex(textareas.length);
     };
 
@@ -24,7 +23,7 @@ const NotificationContainer = () => {
 
     const handleFileChange = (index, event) => {
         const newTextareas = [...textareas];
-        newTextareas[index].attachment = event.target.files[0];
+        newTextareas[index].attachments = Array.from(event.target.files);
         setTextareas(newTextareas);
     };
 
@@ -54,13 +53,13 @@ const NotificationContainer = () => {
         setTextareas([]);
         setCurrentIndex(null);
 
-        const { value: message, attachment } = newTextareas[index];
+        const { value: message, attachments } = newTextareas[index];
 
         const formData = new FormData();
         formData.append('message', message);
-        if (attachment) {
-            formData.append('attachment', attachment);
-        }
+        attachments.forEach((attachment, i) => {
+            formData.append(`attachments[${i}]`, attachment);
+        });
 
         try {
             let response = await fetch("https://scettnp-backend.onrender.com/notification", {
@@ -98,10 +97,11 @@ const NotificationContainer = () => {
                                     disabled={textarea.done}
                                 ></textarea>
                                 <div>
-                                    <label className='addattachment'>Add attachment</label>
+                                    <label className='addattachment'>Add attachments</label>
                                     <input
                                         type="file"
-                                        name="attachment"
+                                        name="attachments"
+                                        multiple
                                         onChange={(e) => handleFileChange(index, e)}
                                         disabled={textarea.done}
                                     />
