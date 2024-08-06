@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './notification.css';
+import noticard from './notifiacationcard';
 
 const NotificationContainer = () => {
     // Define the state
     const [textareas, setTextareas] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(null);
+    const [error, setError] = useState(null);
+    const [message, setMessage] = useState(null);
 
     // Define the click handler to add a new textarea
     const handleButtonClick = () => {
@@ -20,12 +23,39 @@ const NotificationContainer = () => {
     };
 
     // Define the done handler to mark a textarea as done
-    const handleDoneClick = (index) => {
+    const handleDoneClick = async (index) => {
         const newTextareas = [...textareas];
         newTextareas[index].done = true;
         setTextareas(newTextareas);
         setCurrentIndex(null);
+
+        const message = newTextareas[index].value;
+
+        try {
+            let response = await fetch("https://scettnp-backend.onrender.com/notification", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message }) // Send the message in a JSON object
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                setError(errorData.message);
+            } else {
+                const result = await response.json();
+                setMessage(null);
+                
+            }
+        } catch (err) {
+            setError("Failed to send the message. Please try again.");
+        }
     };
+
+    useEffect(() =>{
+        
+    })
 
     return (
         <div className="pmainnotificationcontainer">
@@ -44,14 +74,17 @@ const NotificationContainer = () => {
                                     disabled={textarea.done}
                                 ></textarea>
                                 {!textarea.done && (
-                                     <div className='donebutton-container'>
-                                     <button onClick={() => handleDoneClick(index)} className='donebutton'>Done</button>
-                                 </div>
+                                    <div className='donebutton-container'>
+                                        <button onClick={() => handleDoneClick(index)} className='donebutton'>Done</button>
+                                    </div>
                                 )}
                             </div>
+                            
                         ))}
                     </div>
                 )}
+                {error && <div className='error'>{error}</div>}
+                {message && <div className='success'>{message}</div>}
             </div>
         </div>
     );

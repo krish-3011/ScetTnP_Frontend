@@ -19,12 +19,13 @@ const LoginComponent = ({ onSubmit }) => {
         headers: {
           'Content-Type': 'application/json'
         },
-        credentials: 'include',
+        credentials: 'include', // Ensure credentials are included
         body: JSON.stringify({ enrollmentNo: enrollment, birthDate: date })
       });
 
       if (response.ok) {
         const jsonData = await response.json();
+        console.log(jsonData);
         // Set cookie with an expiration time of 1 minute
         Cookies.set('user', JSON.stringify(jsonData), { expires: 1 / 1440 }); // 1 minute = 1/1440 day
         setLoading(false);
