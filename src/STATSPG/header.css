@@ -1,212 +1,302 @@
-.header
-{
-    position: relative;
-    display: flex;
-    background-color:rgba(164,172,239,0.34) ;
-    border-radius: 20px 20px 103px 20px;
-    width: 1120px;
-    height: 240px;
-    overflow: hidden;
-    margin-left: 288px;
-    box-shadow: 6px 5px 4px 0px rgba(0, 0, 0, 0.25);
+
+.header {
+  position: relative;
+  display:fle;
+  background-color: rgba(164, 172, 239, 0.34);
+  border-radius: 20px 20px 103px 20px;
+  width: 79vw;
+  height: 240px;
+  overflow: hidden;
+  margin-left: 288px;
+  box-shadow: 6px 5px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .head-line {
-    
-   
-    background: #ffffff;
-    border-radius: 50px;
-    width: 1105px;
-    height: 55px;
-    position: relative;
-    left: 12px;
-    top: 22px;
-    overflow: hidden;
+  background: #ffffff;
+  border-radius: 50px;
+  width: 96.5%;
+  margin-left: 2%;
+  height: 55px;
+  position: relative;
+  top: 10%;
+  overflow: hidden;
+}
+
+.firstpage-header-frame-head {
+  background: #d4d7f5;
+  border-radius: 50px;
+  height: 36px;
+  width: calc(100% - 60px);
+  max-width: 343px;
+  position: absolute;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision-header-frame-head,
+.notification-header-frame-head,
+.report-header-frame-head {
+  background: #d4d7f5;
+  border-radius: 50px;
+  height: 36px;
+  width: calc(100% - 60px);
+  max-width: 231px;
+  position: absolute;
+  overflow: hidden;
+  margin-left: 30px;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placement-statistics {
+  color: #000000;
+  background-color: transparent;
+  text-align: center;
+  font-family: "Inter-Light", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+  width: 100%;
+}
+
+.frame-17 {
+  background: transparent;
+  border-radius: 50px;
+  width: 187px;
+  height: 33px;
+  position: absolute;
+  left: 380px;
+  top: 75px;
+  overflow: hidden;
+}
+
+.head-text {
+  color: #0000008b;
+  background-color: transparent;
+  text-align: left;
+  font-family: "InriaSerif-Regular", sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+  position: relative;
+  left: 5%;
+  margin-top: 50px;
+  width: 60vw;
+  height: 151px;
+}
+
+.rectangle-48 {
+  background: #d4d7f5;
+  border-radius: 50px;
+  width: 101px;
+  height: 35px;
+  position: absolute;
+  display: flex;
+  overflow: hidden;
+  left: auto;
+  right: 10px;
+  top: 11px;
+  box-shadow: 3px 5px 4px 0px rgba(0, 0, 0, 0.43);
+  align-items: center;
+  justify-content: center;
+}
+
+.system-icons {
+  background-color: transparent;
+  width: 29px;
+  height: 29px;
+  position: absolute;
+  left: 5px;
+  top: 3px;
+  z-index: 20;
+}
+
+.system-icons:hover {
+  animation: rotateLoop 2.5s infinite alternate;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    width: 74vw;
   }
-  .addoffers-header-frame-head {
-    background: #d4d7f5;
-    border-radius: 50px;
-    height: 36px;
-    width: calc(100% - 60px); /* Adjust width to fit within padding */
-    max-width: 151px; /* Ensure it doesn't exceed the original width */
-    position: absolute; /* Keep it positioned absolutely */
-    overflow: hidden;
-    margin-left: 30px; /* Keep it 30px from the left */
-    margin-top: 32px; /* Keep it 32px from the top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .head-text
+  {
+    font-size: 18px;
   }
 
-  .offers-header-frame-head {
-    background: #d4d7f5;
-    border-radius: 50px;
-    height: 36px;
-    width: calc(100% - 60px); /* Adjust width to fit within padding */
-    max-width: 151px; /* Ensure it doesn't exceed the original width */
-    position: absolute; /* Keep it positioned absolutely */
-    overflow: hidden;
-    margin-left: 30px; /* Keep it 30px from the left */
-    margin-top: 32px; /* Keep it 32px from the top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .rectangle-48 {
+    left: auto;
+    top: 7px;
+  }
+
+  .head-line {
+    width: 97%;
+  }
+
+  .firstpage-header-frame-head,
+  .vision-header-frame-head,
+  .notification-header-frame-head,
+  .report-header-frame-head {
+    width: 70%;
+  }
+
+  
+}
+
+@media (max-width: 932px) {
+  .header {
+    width: 67vw;
+  }
+
+  .rectangle-48 {
+    left: auto;
+    right: 10px;
+  }
+
+  .head-line {
+    width: 95%;
+  }
+
+  .firstpage-header-frame-head,
+  .vision-header-frame-head,
+  .notification-header-frame-head,
+  .report-header-frame-head {
+    width: 65%;
+    margin-left: 10px;
+  }
+
+ 
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: 90vw;
+  }
+.rectangle-48
+{
+  display: none;
+}
+
+  .head-line {
+    width: 95%;
+  }
+
+  .firstpage-header-frame-head,
+  .vision-header-frame-head,
+  .notification-header-frame-head,
+  .report-header-frame-head {
+    width: 60%;
+    margin-left: 10px;
   }
 
 
-  .firstpage-header-frame-head {
-    background: #d4d7f5;
-    border-radius: 50px;
-    height: 36px;
-    width: calc(100% - 60px); /* Adjust width to fit within padding */
-    max-width: 343px; /* Ensure it doesn't exceed the original width */
-    position: absolute; /* Keep it positioned absolutely */
-    overflow: hidden;
-    margin-left: 30px; /* Keep it 30px from the left */
-    margin-top: 32px; /* Keep it 32px from the top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .header {
+    width: 95vw;
+    height: 160px;
   }
-  .vision-header-frame-head {
-    background: #d4d7f5;
-    border-radius: 50px;
-    height: 36px;
-    width: calc(100% - 60px); /* Adjust width to fit within padding */
-    max-width: 231px; /* Ensure it doesn't exceed the original width */
-    position: absolute; /* Keep it positioned absolutely */
-    overflow: hidden;
-    margin-left: 30px; /* Keep it 30px from the left */
-    margin-top: 32px; /* Keep it 32px from the top */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .rectangle-48 {
+    left: auto;
+    right: 10px;
+    top: 10px;
   }
-  .notification-header-frame-head {
-    background: #d4d7f5;
-    border-radius: 50px;
-    height: 36px;
-    width: calc(100% - 60px); /* Adjust width to fit within padding */
-    max-width: 231px; /* Ensure it doesn't exceed the original width */
-    position: absolute; /* Keep it positioned absolutely */
-    overflow: hidden;
-    margin-left: 30px; /* Keep it 30px from the left */
-    margin-top: 32px; /* Keep it 32px from the top */
+
+  .head-line {
+    width: 75%;
+  }
+
+  .firstpage-header-frame-head,
+  .vision-header-frame-head,
+  .notification-header-frame-head,
+  .report-header-frame-head {
+    width: 55%;
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+
+}
+
+
+
+  @media (max-width: 500px)
+  {
+    .header
+  {
+    position:fixed;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    background-color:rgba(164,172,239,0.34) ;
+    width: 404px;
+    height: 86px;
+    overflow: hidden;
+    margin-left: 11px;
+    border-radius: 24px;
+      box-shadow: 6px 5px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+    .head-text 
+    {
+        color: #0000008b;
+        background-color: transparent;
+        text-align: left;
+        font-family: "InriaSerif-Regular", sans-serif;
+        font-size: 15px;
+        letter-spacing: 0.05em;
+        font-weight: 400;
+        position: fixed;
+        left: 40px;
+        top: 100px;
+        width: 400px;
+        height: 151px;
+        display: none;
+    }
+    .firstpage-header-frame-head {
+      background: #d4d7f5;
+      border-radius: 50px;
+      height: 29px;
+      width: calc(100% - 60px);
+      max-width: 210px;
+      position: absolute;
+      overflow: hidden;
+      margin-left: 80px;
+      margin-top: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
   }
   .placement-statistics {
     color: #000000;
     background-color: transparent;
     text-align: center;
     font-family: "Inter-Light", sans-serif;
-    font-size: 20px;
+    font-size: 14px;
     letter-spacing: 0.05em;
     font-weight: 300;
-    width: 100%; /* Adjust to the width of the parent */
-  }
-  .frame-17 {
-    background: transparent;
-    border-radius: 50px;
-    width: 187px;
-    height: 33px;
-    position: absolute;
-    left: 380px;
-    top: 75px;
-    overflow: hidden;
-  }
-  
-  /*notification bar*/
+    width: 100%;
+}
+.head-line {
+  background: #ffffff;
+  border-radius: 50px;
+  width: 387px;
+  height: 40px;
+  position: relative;
+  left: 12px;
+  top: 22px;
+  overflow: hidden;
+}
+.rectangle-48{
+  display: none;
+}
 
-  .rectangle-48 {
-    background: #d4d7f5;
-    border-radius: 50px;
-    width: 101px;
-    height: 35px;
-    position: absolute;
-    display: flex;
-    overflow: hidden;
-    left: 938px;
-    top: 31px;
-    box-shadow: 3px 5px 4px 0px rgba(0, 0, 0, 0.43);
-    align-items: center;
-    justify-content: center;
   }
-  .system-icons {
-    background-color: transparent;
-    width: 29px;
-    height: 29px;
-    position: absolute;
-    left: 952px;
-    top: 34px;
-    overflow: visible;
-    
-  }
-  .system-icons:hover
-  {
-   
-    /* background-color: #0015ff; */
-   
-    animation: rotateLoop 2.5s infinite alternate;
-    
-  }
-  @keyframes rotateLoop {
-    0% {
-        transform: rotate(-30deg);
-    }
-    50%{
-      transform: rotate(30deg);
-    }
-    100% {
-        transform: rotate(-30deg);
-    }
-  }
-  
-
-  .line-9 {
-    border-left: 2px solid rgb(3, 3, 3);
-    height: 25px;
-    position: absolute;
-    left: 989px;
-    top: 32px;
-    margin-top: 5px;
-    overflow: visible;
-  }
-  .system-icons2 {
-    background-color: transparent;
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    left: 1004px;
-    top: 36px;
-    overflow: visible;
-  }
-  
-  .head-text 
-  {
-    color: #0000008b;
-    background-color: transparent;
-    text-align: left;
-    font-family: "InriaSerif-Regular", sans-serif;
-    font-size: 20px;
-    letter-spacing: 0.05em;
-    font-weight: 400;
-    position: absolute;
-    left: 16px;
-    top: 117px;
-    width: 682px;
-    height: 151px;
-  }
-  
-  .demo{
-    rotate: 30deg;
-  }
-  
-  .demoReverse{
-    rotate : -30deg;
-  }
-  /*graphs*/
 
 
   

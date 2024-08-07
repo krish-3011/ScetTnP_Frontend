@@ -9,7 +9,7 @@ const Reports = () =>
     <div className="reportcontainer">
           <Navbar />
           <Header
-            className="notification-header" // Add specific styles for Offers
+            className="firstpage-header" // Add specific styles for Offers
             title="REPORT " // Dynamic title
             text="Browse through our latest job offers and start your journey towards a fulfilling career. From tech giants to management roles, explore opportunities that await you."
          />

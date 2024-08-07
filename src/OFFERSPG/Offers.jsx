@@ -6,6 +6,7 @@ import "./cards.css";
 import LoginComponent from "./Login"; // Ensure correct path to LoginComponent
 import Cookies from 'js-cookie'; // Import js-cookie
 
+
 const Offers = () => {
   const [showLoginPage, setShowLoginPage] = useState(true);
   const [profileData, setProfileData] = useState(null);
@@ -38,7 +39,7 @@ const Offers = () => {
     <div className="offer1container">
       <Navbar />
       <Header
-        className="offers-header"
+        className="firstpage-header"
         title="OFFERS"
         text="Browse through our latest job offers and start your journey towards a fulfilling career. From tech giants to management roles, explore opportunities that await you."
       />

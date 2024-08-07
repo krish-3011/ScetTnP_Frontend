@@ -66,9 +66,12 @@ const Graphs = () => {
 
   return (
     <div className="Stats">
+      <div className="graph1and3">
       <div className="graph-1">
+      <div className="gantchartandpiechart">
         <GaugeComponent id="1" value={data.intrested} max={data.total} text={"students interested"}/>
         <GaugeComponent id="2" value={data.placed} max={data.intrested} text={"students placed"}/>
+        </div>
         <div className="drop-down-pie">
           <div className="drop-down-menu">
             <AcademicYearDropdown onYearChange={onYearChange}/>
@@ -96,19 +99,8 @@ const Graphs = () => {
           />
         </div>
       </div>
-      <div className="Graph3">
-        <h2 className="avg-pkg-text">AVERAGE PACKAGE</h2>
-        <div className="BAR-GRAPH2">
-          <ApexChart
-            id="2"
-            // data={data.averagePackge}
-            data={Object.values(data.averagePackge)}
-            // data={[10000,2000,8000,100000,6000]}
-            label={Object.keys(data.averagePackge)}
-
-          />
-        </div>
       </div>
+      <div className="graph3and4">
       <div className="Graph4">
         <div className="BarContainer">
           <BarChartComponent 
@@ -124,6 +116,21 @@ const Graphs = () => {
 
         </div>
       </div>
+      <div className="Graph3">
+        <h2 className="avg-pkg-text">AVERAGE PACKAGE</h2>
+        <div className="BAR-GRAPH2">
+          <ApexChart
+            id="2"
+            // data={data.averagePackge}
+            data={Object.values(data.averagePackge)}
+            // data={[10000,2000,8000,100000,6000]}
+            label={Object.keys(data.averagePackge)}
+
+          />
+        </div>
+      </div>
+      </div>
+
     </div>
   );
 };

@@ -4,7 +4,7 @@ const VisionContainer = () =>
    <div className="Vmaincontainer">
       <div className='Vsubcontainer'>
          <h1 className='visionmainheading'>Vision and Mission  </h1>
-         <hr className='underlinebelowh1'/>
+         <hr className='underlinebelowh11'/>
          <br/>
          <ul>
             <h1 ><li>Vision</li></h1>

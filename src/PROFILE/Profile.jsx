@@ -37,7 +37,7 @@ const Profile = () => {
     <div className="profilecontainer">
       <Navbar />
       <Header
-        className="offers-header"
+        className="firstpage-header"
         title="PROFILE"
         text="Manage your profile and update your details."
       />

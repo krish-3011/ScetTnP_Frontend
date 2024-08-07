@@ -14,7 +14,7 @@ const ApexChart = ({ id, data , label }) => {
     },
     plotOptions: {
       bar: {
-        borderRadius: 4,
+        borderRadius: 5,
         borderRadiusApplication: 'end',
         horizontal: true,
       }
@@ -38,7 +38,7 @@ const ApexChart = ({ id, data , label }) => {
   return (
     <div>
       <div id={`chart-${id}`}>
-        <ReactApexChart options={options} series={series} type="bar" height={300} width={450} /> {/* Adjust height and width here */}
+        <ReactApexChart options={options} series={series} type="bar" height={300} width={500} /> {/* Adjust height and width here */}
       </div>
       <div id="html-dist"></div>
     </div>

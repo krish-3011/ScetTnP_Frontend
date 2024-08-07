@@ -9,6 +9,26 @@ const NotificationContainer = () => {
     const [message, setMessage] = useState(null);
     const [loading, setLoading] = useState(true);
     const [notifications, setNotifications] = useState([]);
+    
+    const currentYear = new Date().getFullYear();
+    const years = [currentYear, currentYear - 1, currentYear - 2, currentYear - 3];
+    const [checkbox, setCheckitem] = useState({
+        [currentYear]: false,
+        [currentYear - 1]: false,
+        [currentYear - 2]: false,
+        [currentYear - 3]: false,
+    });
+        const handleCheckboxChange = (e) => {
+            setCheckitem({ 
+                 ...checkbox,
+                [e.target.name]: e.target.checked
+            });
+        };
+
+
+
+   
+
 
     const handleButtonClick = () => {
         setTextareas([...textareas, { value: '', done: false, attachments: [] }]);
@@ -41,6 +61,7 @@ const NotificationContainer = () => {
             setError(error.message);
             setLoading(false);
         }
+        
     };
 
     useEffect(() => {
@@ -50,21 +71,21 @@ const NotificationContainer = () => {
     const handleDoneClick = async (index) => {
         const newTextareas = [...textareas];
         newTextareas[index].done = true;
-        setTextareas([]);
+        setTextareas([...newTextareas]); // Correctly update state
         setCurrentIndex(null);
 
         const { value: message, attachments } = newTextareas[index];
 
-        const formData = new FormData();
-        formData.append('message', message);
-        attachments.forEach((attachment, i) => {
-            formData.append(`attachments[${i}]`, attachment);
+        const notificationData = new FormData();
+        notificationData.append('message', message);
+        attachments.forEach((attachment) => {
+            notificationData.append('attachments', attachment); // Append each file separately
         });
 
         try {
             let response = await fetch("https://scettnp-backend.onrender.com/notification", {
                 method: 'POST',
-                body: formData // Send the FormData object
+                body: notificationData // Send the FormData object
             });
 
             if (!response.ok) {
@@ -78,6 +99,7 @@ const NotificationContainer = () => {
         } catch (err) {
             setError("Failed to send the message. Please try again.");
         }
+        setTextareas({value: '', done: false, attachments: [] });
     };
 
     return (
@@ -85,11 +107,25 @@ const NotificationContainer = () => {
             <div className="subnotificationcontainer">
                 <div className='createbuttoncontainer'>
                     <button onClick={handleButtonClick} className='createbutton' disabled={currentIndex !== null}>Create</button>
+
                 </div>
                 {textareas.length > 0 && (
                     <div className='notificationcontainer'>
                         {textareas.map((textarea, index) => (
                             <div key={index}>
+                                <div>
+                                {years.map((year) => (
+                                        <label key={year}>
+                                            <input
+                                                type="checkbox"
+                                                name={year.toString()}
+                                                checked={checkbox[year]}
+                                                onChange={handleCheckboxChange}
+                                                disabled={textarea.done}
+                                            /> {year}
+                                        </label>
+                                    ))}
+                                </div>
                                 <textarea
                                     className='addnotificationarea'
                                     value={textarea.value}

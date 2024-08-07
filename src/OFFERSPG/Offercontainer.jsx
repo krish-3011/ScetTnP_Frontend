@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './cards.css';
 import ApplyCard from "./Applycard";
+import AppliedCard from './appliedcard';
 
 const Offerscontainer = () => {
   const [data, setData] = useState([]); // State to hold the fetched data

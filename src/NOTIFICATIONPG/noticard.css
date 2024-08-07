@@ -9,6 +9,8 @@
   padding: 1%;
   overflow: hidden;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
 
 
   

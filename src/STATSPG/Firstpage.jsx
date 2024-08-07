@@ -12,12 +12,14 @@ const FirstPage = () =>
 {
     return (<div className="container">  
         <Navbar />
+        <div className="headerandmain">
         <Header
           className="firstpage-header" // Add specific styles for FirstPage
           title="PLACEMENT STATISTICS" // Dynamic title
           text="Gain a comprehensive overview of our placement success rates. Explore detailed statistics on job offers, department-wise placements, and the performance of our graduates."
         />
         <Graphs />
+        </div>
       </div>);
 
     
