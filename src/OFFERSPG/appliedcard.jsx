@@ -3,7 +3,7 @@ import './cards.css';
 
 const AppliedCard = ({ company, title, type, location, salary, date, logo}) => {
   return (
-    <div className="applyframe">
+    <div className="applyframe-applied">
       <div className="companylogo">
         <img src={logo} alt="company logo" />
       </div>
