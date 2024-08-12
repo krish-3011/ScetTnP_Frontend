@@ -14,6 +14,8 @@ import Profile from './PROFILE/Profile';
 import AddOffers from './ADDOFFERSPG/AddOffer';
 import AddCompany from './ADDCOMPPG/AddCompany';
 import Reports from './REPORTSPG/Reports';
+import Imports from './IMPORTPG/Import'
+
 
 
 import {
@@ -38,6 +40,7 @@ const App = () => (
   <Route exact path ='/add_offer' element={<AddOffers/>} />
   <Route exact path ='/add_company' element={<AddCompany/>} />
   <Route exact path ='/reports' element={<Reports/>} />
+  <Route exact path ='/imports' element={<Imports/>} />
 
   
 </Routes>

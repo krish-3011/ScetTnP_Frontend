@@ -124,12 +124,14 @@
 }
 
 .side-bar {
-  width: 14.3125rem; /* Converted from 229px */
-  height: 80%; /* Converted from 500px */
+  width: 15.3125rem; /* Converted from 229px */
+  height: 70%; /* Converted from 500px */
   position: absolute;
   left: 1.375rem; /* Converted from 22px */
   top: 22%; /* Converted from 210px */
   background-color: transparent;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 /* Responsive Styles */

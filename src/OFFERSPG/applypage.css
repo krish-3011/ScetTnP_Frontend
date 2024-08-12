@@ -1,0 +1,12 @@
+.appliedpageframe{
+    width: 500px;
+    height: 500px;
+    background-color:#D7DAF8 ;
+    display: flex;
+    justify-content: space-around   ;
+}
+
+.applypage-info{
+    display: flex;
+    flex-direction: column ;
+}

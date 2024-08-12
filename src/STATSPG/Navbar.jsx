@@ -29,7 +29,7 @@ const Navbar = () => {
         </div>
         <hr className="scetbelowline" />
         <div className="side-bar">
-          {["STATISTICS", "VISION_AND_MISSION", "TnP_POLICY", "ABOUT", "OFFERS", "TEAM", "NOTIFICATION", "PROFILE","ADD_OFFER","ADD_COMPANY","REPORTS"].map((item, index) => (
+          {["STATISTICS", "VISION_AND_MISSION", "TnP_POLICY", "ABOUT", "OFFERS", "TEAM", "NOTIFICATION", "PROFILE","ADD_OFFER","ADD_COMPANY","REPORTS","IMPORTS"].map((item, index) => (
             <div key={index} className={`frame-${index + 3}`}>
               <div className={`${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}-inter-font`} id={item.toLowerCase().replace(/ /g, '-')} onClick={() => window.location.href = `/${item.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`}><Link to={`/${item.toLowerCase()}`} className="no-underline">{item}</Link></div>
             </div>
