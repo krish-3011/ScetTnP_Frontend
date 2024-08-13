@@ -38,7 +38,7 @@ const ImportData = () => {
   };
 
   return (
-    <div>
+    <div className='cont'>
         <div className='buttons'>
       <button className='but' onClick={() => setImportType('student')}>Add Student</button>
       <button className='but' onClick={() => setImportType('marks')}>Student Marks</button>
@@ -50,7 +50,7 @@ const ImportData = () => {
             accept=".xlsx, .xls" 
             onChange={handleFileUpload} 
           />
-          <button onClick={handleImport}>Import</button>
+          <button className='but1' onClick={handleImport}>Import</button>
           <table className="table-container">
             <thead>
               <tr>

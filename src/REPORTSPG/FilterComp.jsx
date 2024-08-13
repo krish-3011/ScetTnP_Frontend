@@ -28,7 +28,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
 
     try{
-        const response = await fetch('http://localhost:5000/report', {
+        const response = await fetch("https://scettnp-backend.onrender.com/report", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ const handleSubmit = async (e) => {
                 <select name="dept" value={filters.dept} onChange={handleChange}>
                 <option value="">Select Department</option>
                 {/*<option value="all">all</option>*/}
-                <option value="CSE">Computer Science</option>
+                <option value="CO">Computer Science</option>
                 <option value="ECE">Electronics & Communication</option>
                 <option value="ME">Mechanical Engineering</option>
                 </select>
@@ -111,10 +111,10 @@ const handleSubmit = async (e) => {
                 Batch:
                 <select name="batch" value={filters.batch} onChange={handleChange}>
                 <option value="">Select Batch</option>
-                <option value="2021">2021</option>
                 <option value="2022">2022</option>
                 <option value="2023">2023</option>
                 <option value="2024">2024</option>
+                <option value="2025">2025</option>
           
                 </select>
             </label>
