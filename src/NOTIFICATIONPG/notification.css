@@ -102,7 +102,7 @@ button.donebutton:hover {
 
 @media (max-width: 932px) {
     .pmainnotificationcontainer, .subnotificationcontainer {
-        width: 88vw;
+        width: 64vw;
     }
 
     .createbutton {

@@ -110,7 +110,7 @@ const Graphs = () => {
           // coreData={[0,1,5,2,8]}
           // itData={[2,8,3,0,0]}
           // managmentData={[1,1,1,1,1]}
-          label={Object.keys(data.sector.core)}
+          label={Object.keys(data.sector.CORE)}
           />
 
 
