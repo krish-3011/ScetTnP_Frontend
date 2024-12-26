@@ -104,9 +104,9 @@ const Graphs = () => {
       <div className="Graph4">
         <div className="BarContainer">
           <BarChartComponent 
-          coreData={Object.values(data.sector.core)}
+          coreData={Object.values(data.sector.CORE)}
           itData={Object.values(data.sector.IT)}
-          managmentData={Object.values(data.sector.managment)}
+          managmentData={Object.values(data.sector.MANAGEMENT)}
           // coreData={[0,1,5,2,8]}
           // itData={[2,8,3,0,0]}
           // managmentData={[1,1,1,1,1]}
