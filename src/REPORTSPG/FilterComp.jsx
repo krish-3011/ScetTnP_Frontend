@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import * as XLSX from "xlsx"; // Import XLSX library for Excel export
 
-function Reportfilter() {
+function ReportFilter() {
   const [filters, setFilters] = useState({
-    onAccount: '',
+    onAccount: "",
     placed: false,
     intrested: false,
     male: false,
     female: false,
-    batch: '',
-    dept: '',
-    salaryOperator: '',
-    salaryAmount: '',
-    groupBy: '',
+    batch: "",
+    dept: "",
+    salaryOperator: "",
+    salaryAmount: "",
+    groupBy: "",
   });
 
   const [reportData, setReportData] = useState(null); // Store the report data
@@ -45,6 +46,7 @@ function Reportfilter() {
       }
 
       const data = await response.json();
+      console.log(data); // Log the response to check the structure
       setReportData(data); // Set the fetched data into state
     } catch (error) {
       setError(error.message); // Set error if something goes wrong
@@ -53,10 +55,37 @@ function Reportfilter() {
     }
   };
 
+  // Function to export the whole data to a single Excel file
+  const exportToExcel = () => {
+    let students = [];
+
+    // Flatten the reportData into one single array
+    Object.entries(reportData).forEach(([companyName, companyStudents]) => {
+      if (Array.isArray(companyStudents) && companyStudents.length > 0) {
+        companyStudents.forEach((student) => {
+          students.push({
+            Company: companyName,
+            EnrollmentNo: student.enrollment_no,
+            Name: student.name,
+            Gender: student.gender,
+            Cast: student.cast,
+            Sector: student.sector,
+            Salary: student.salary,
+          });
+        });
+      }
+    });
+
+    // Convert the array to a worksheet
+    const ws = XLSX.utils.json_to_sheet(students);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Report");
+    XLSX.writeFile(wb, "report.xlsx");
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="onaccountdiv">
-        {/* Filters Form */}
         <div className="line1">
           <label>
             On Account:
@@ -173,47 +202,53 @@ function Reportfilter() {
       {/* Show error if any */}
       {error && <p style={{ color: "red" }}>Error: {error}</p>}
 
-      {/* Render the report data in a table */}
+      {/* Render the report data as a table */}
       {reportData && (
-        <table border="1" className="report-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Enrollment No.</th>
-              <th>Gender</th>
-              <th>Cast</th>
-              <th>Role</th>
-              <th>Company</th>
-              <th>Drive Status</th>
-              <th>Sector</th>
-              <th>Salary</th>
-              <th>Selected</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.keys(reportData).map((companyId) =>
-              reportData[companyId].map((student) =>
-                student.applied.map((application) => (
-                  <tr key={application._id}>
-                    <td>{student.name}</td>
+        <div className="report-container">
+          <table border="1" cellPadding="5" style={{ width: "100%", borderCollapse: "collapse" }}>
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Enrollment No</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Cast</th>
+                <th>Sector</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(reportData).map(([companyName, students]) => {
+                if (!Array.isArray(students) || students.length === 0) {
+                  return (
+                    <tr key={companyName}>
+                      <td colSpan="7">No students found for {companyName}</td>
+                    </tr>
+                  );
+                }
+
+                return students.map((student, index) => (
+                  <tr key={index}>
+                    <td>{companyName}</td>
                     <td>{student.enrollment_no}</td>
+                    <td>{student.name}</td>
                     <td>{student.gender}</td>
                     <td>{student.cast}</td>
-                    <td>{application.role}</td>
-                    <td>{application.company}</td>
-                    <td>{application.drive}</td>
-                    <td>{application.sector}</td>
-                    <td>{application.salary.min}</td>
-                    <td>{application.selected.includes(student._id) ? "Yes" : "No"}</td>
+                    <td>{student.sector}</td>
+                    <td>{student.salary}</td>
                   </tr>
-                ))
-              )
-            )}
-          </tbody>
-        </table>
+                ));
+              })}
+            </tbody>
+          </table>
+          {/* Export button */}
+          <button onClick={exportToExcel} style={{ marginTop: "20px" }}>
+            Export to Excel
+          </button>
+        </div>
       )}
     </div>
   );
 }
 
-export default Reportfilter;
+export default ReportFilter;
