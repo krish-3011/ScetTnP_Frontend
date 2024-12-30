@@ -1,188 +1,231 @@
-.cardsmaincontainer
-{
+.cardsmaincontainer {
   display: flex;
-  width: 1124px;
+  width: 70vw;
   height: 800px;
   background-color: transparent;
   margin-top: 30px;
-    margin-left: 288px;
+  margin-left: 288px;
+  justify-content: space-between;
+  gap: 10px;
+}
+.apllicationcontainerframe {
+  width: 37vw;
+  height: 800px;
+  background: #D7DAF8;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px;
   justify-content: space-between;
 }
-.apllicationcontainerframe
-{
-    width: 540px;
-     height: 800px;
-     background: #D7DAF8;
-    border-radius: 30px;
-    overflow: hidden;
-    box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
-    padding: 10px;
-    justify-content: space-between;
+.secondapllicationcontainerframe {
+  width: 540px;
+  height: 800px;
+  background: transparent;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 16px;
 }
-.secondapllicationcontainerframe
-{
-    width: 540px;
-     height: 800px;
-     background: transparent;
-    border-radius: 30px;
-
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 16px;
-}
-.secondapplicationcontainer
-{
+.secondapplicationcontainer {
+  width: 39vw;
   height: 390px;
   background: #D7DAF8;
- border-radius: 30px;
- border: #D7DAF8;
- border: 5.5px solid #D7DAF8; 
- overflow: hidden;
- box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
-
+  border-radius: 30px;
+  border: #D7DAF8;
+  border: 5.5px solid #D7DAF8;
+  overflow: hidden;
+  box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
 }
-.thirdapplicationcontainer
-{
+.thirdapplicationcontainer {
   height: 390px;
- border-radius: 30px;
- background-color: #D7DAF8;
- overflow: hidden;
- border: #D7DAF8;
- border: 5.5px solid #D7DAF8; 
- padding-top: 2px;
- box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  background-color: #D7DAF8;
+  overflow: hidden;
+  border: #D7DAF8;
+  border: 5.5px solid #D7DAF8;
+  padding-top: 2px;
+  box-shadow: 8px 6px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .appllicationframe {
-    border-radius: 30px;
-    
+  border-radius: 30px;
+  width: auto;
+  height: 90%;
+  overflow-y: scroll;
+}
+.applyframe {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin: 25px 12px;
+  border-radius: 25px;
+  background-color: #fff;
+}
+.applyframe-applied {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin: 7px 12px;
+  border-radius: 25px;
+  background-color: #fff;
+  height: fit-content;
+}
+.headingofapllicationframe {
+  font-size: 35px;
+  margin-top: 20px;
+  margin-left: 50px;
+}
+.lineunderheading {
+  width: 93%;
+  background-color: black;
+  color: black;
+  height: 1px;
+}
 
-    width: auto;
-    height: 90%;
+.companylogo {
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    overflow-y: scroll;
+.companylogo img {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+
+.apply-detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.apply-detail h2 {
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  background-color: transparent;
+}
+
+.apply-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+}
+
+.apply-info p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.apply-button {
+  align-self: center;
+  padding: 8px 16px;
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.apply-button:hover {
+  background-color: #5247db;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.applypage-wrapper {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media ((max-width: 1500px)) {
+  .cardsmaincontainer {
+    width: 76vw;
+    gap: 20px; /* Space between items adjusts for larger screens */
+  }
+
+  .apllicationcontainerframe {
+    width: 38vw; /* Slightly adjust frame width */
+  }
+
+  .secondapplicationcontainer {
+    width: 37vw; /* Consistent width for second container */
+  }
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .cardsmaincontainer {
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    height: 1000px;
+    gap: 20px;
+  }
+
+  .apllicationcontainerframe,
+  .secondapllicationcontainerframe {
+    margin-top: 100px;
+    width: 100%;
+    height: 300px;
+  }
+
+  .secondapplicationcontainer,
+  .thirdapplicationcontainer {
+    width: 100%;
+    height: auto;
+    margin-top: -260px;
+  }
+  .thirdapplicationcontainer {
+    margin-top: -184px;
+  }
+
+  .headingofapllicationframe {
+    font-size: 24px;
+    margin-left: 20px;
+    margin-top: 10px;
   }
 
   .applyframe {
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    margin: 25px 12px;
-    border-radius: 25px;
-    background-color: #fff;
+    margin: 15px 8px;
+    padding: 12px;
   }
 
-  .applyframe-applied{
-    display: flex;
-    align-items: center;
-    padding: 16px;
-    margin: 7px 12px;
-    border-radius: 25px;
-    background-color: #fff;
-    height: fit-content;
-
-  }
-  .headingofapllicationframe
-  {
-    font-size: 35px;
-    margin-top: 20px;
-    margin-left: 50px;
-    
-  }
-  .lineunderheading
-  {
-    width: 93%;
-    background-color: black;
-    color: black;
-    height: 1px;
-  }
-  
-  .companylogo {
-
-    margin-right: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .companylogo img {
-    width: 100px;
-    height: 100px;
-    background-color: blue;
+    width: 80px;
+    height: 80px;
   }
-  
-  .apply-detail {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .apply-detail h2 {
-    margin: 0;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
-    background-color: transparent;
-  }
-  
-  .apply-info {
-    display: flex;
-    justify-content: space-around;
-    padding: 8px 0;
-  }
-  
-  .apply-info p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .icon {
-    margin-right: 8px;
-  }
-  
-  .apply-button {
-    align-self: center;
-    padding: 8px 16px;
-    background-color: #6c63ff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .apply-button:hover {
-    background-color: #5247db;
-  }
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Ensure it appears on top */
-  }
-  
-  .applypage-wrapper {
-    background-color: transparent;
-    padding: 20px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 600px;
-    position: relative;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
+}

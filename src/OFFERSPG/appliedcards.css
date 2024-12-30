@@ -1,13 +1,5 @@
-.cardsmaincontainer
-{
-  display: flex;
-  width: 1124px;
-  height: 800px;
-  background-color: transparent;
-  margin-top: 30px;
-    margin-left: 288px;
-  justify-content: space-between;
-}
+
+
 .apllicationcontainerframe
 {
     width: 540px;
